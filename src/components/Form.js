@@ -6,15 +6,16 @@ import { useState } from "react";
 
 let RegEx = /^[a-z0-9 ]+$/i;
 const Form = () => {
-  const[test,setTest]=useState(false);
+  const [test, setTest] = useState(false);
 
-  const clickHandler=()=>{
+  const clickHandler = () => {
     !valueIsValidForPass &&
       !valueIsValidForNo &&
       !valueIsValidForOpt &&
       !valueIsValidForEmail &&
-      !valueIsValid&&setTest(true);
-  }
+      !valueIsValid &&
+      setTest(true);
+  };
   const submitHandler = (e) => {
     e.preventDefault();
     setIsTouched(true);
@@ -98,8 +99,6 @@ const Form = () => {
 
   const email = valueEmail;
   const result = email.slice(0, email.indexOf("@"));
- 
-  
 
   return (
     <>
@@ -182,13 +181,14 @@ const Form = () => {
             </button>
           </div>
         </form>
-        
       </div>
+      <div>
       {test && !valueIsValidForPass &&
       !valueIsValidForNo &&
       !valueIsValidForOpt &&
       !valueIsValidForEmail &&
-      !valueIsValid && <h1 className="greetingMessage">Hello {result}</h1>}
+      !valueIsValid && <h1 className="greetingMessage">Hello {result}.</h1>}
+      </div>
     </>
   );
 };
